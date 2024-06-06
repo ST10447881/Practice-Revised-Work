@@ -19,15 +19,20 @@ class MainActivity3 : AppCompatActivity() {
     private lateinit var  tvHoursPM : TextView
     private lateinit var tvHoursNotes : TextView
 
-    @SuppressLint("MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?) {
-    btn_back = findViewById(R.id.btn_back)
-    tv_details = findViewById(R.id.tv_details)
-    tvHoursAM = findViewById(R.id.tvHoursAM)
-    tvHoursPM = findViewById(R.id.tvHoursPM)
-    tvHoursNotes = findViewById(R.id.tvHoursNotes)
 
-    val dateArray = intent.getFloatArrayExtra("dateArray")?.toList() ?: emptyList()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main3)
+
+
+        btn_back = findViewById(R.id.btn_back)
+        tv_details = findViewById(R.id.tv_details)
+        tvHoursAM = findViewById(R.id.tvHoursAM)
+        tvHoursPM = findViewById(R.id.tvHoursPM)
+        tvHoursNotes = findViewById(R.id.tvHoursNotes)
+
+        val dateArray = intent.getFloatArrayExtra("dateArray")?.toList() ?: emptyList()
         val timeArrayMorning = intent.getFloatArrayExtra("timeArrayMorning")?.toList()?: emptyList()
         val timeArrayAfternoon = intent.getFloatArrayExtra("timeArrayAfternoon")?.toList()?: emptyList()
         val notesArray = intent.getStringArrayExtra("notesArray")?.toList() ?: emptyList()
@@ -56,9 +61,7 @@ class MainActivity3 : AppCompatActivity() {
         btn_back.setOnClickListener {
             finish()
         }
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main3)
+
 
         }
     }
